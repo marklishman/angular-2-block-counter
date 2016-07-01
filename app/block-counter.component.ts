@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
     template:  `
         <button (click)="updateCount(-1)" [disabled]="!count"> - </button>
         <button (click)="updateCount()"> + </button>
-        <span [innerHtml]="blocks" class="blocks"></span>
+        <span [innerHTML]="blocks" class="blocks"></span>
         {{count || 'none'}}`,
     styles: ['.blocks {color: PaleGreen;']
 })
