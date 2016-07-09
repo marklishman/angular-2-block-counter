@@ -11,13 +11,13 @@ import { Component } from '@angular/core';
 })
 export class BlockCounterComponent {
 
-    count: number = 4;
+    private count: number = 4;
 
-    updateCount(adjustment:number = 1) {
+    private updateCount(adjustment:number = 1) {
         this.count += adjustment;
     }
 
-    get blocks() {
+    private get blocks() {
         return '&#9609;'.repeat(this.count);
     }
 }
