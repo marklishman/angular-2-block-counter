@@ -6,4 +6,4 @@ This version uses node modules for the resources and compiles the TypeScript int
 To see how to load the resources from a CDN and comile the TypeScript in the browser, 
 see the [cdn branch](https://github.com/marklishman/angular-2-block-counter/tree/cdn). 
 
-Used by the [Angular 2 with TypeScript Tutorial](http://lishman.io/angular-2-tutorial) at [lishman.io](http://lishman.io)
+Used by the [Angular 2 with TypeScript Configuration](http://lishman.io/angular-2-configuration) at [lishman.io](http://lishman.io)
