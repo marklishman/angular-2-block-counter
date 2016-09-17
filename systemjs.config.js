@@ -1,52 +1,5 @@
-(function(global) {
-
-    var ngVer = '@2.0.0-rc.4';
-    var routerVer = '@3.0.0-beta.1';
-    var formsVer = '@0.2.0';
-    var routerDeprecatedVer = '@2.0.0-rc.2';
-
-    var  map = {
-        'app':                        'app',
-
-        '@angular':                   'https://npmcdn.com/@angular',
-        '@angular/router':            'https://npmcdn.com/@angular/router' + routerVer,
-        '@angular/forms':             'https://npmcdn.com/@angular/forms' + formsVer,
-        '@angular/router-deprecated': 'https://npmcdn.com/@angular/router-deprecated' + routerDeprecatedVer,
-        'angular2-in-memory-web-api': 'https://npmcdn.com/angular2-in-memory-web-api',
-        'rxjs':                       'https://npmcdn.com/rxjs@5.0.0-beta.6',
-        'ts':                         'https://npmcdn.com/plugin-typescript@4.0.10/lib/plugin.js',
-        'typescript':                 'https://npmcdn.com/typescript@1.9.0-dev.20160409/lib/typescript.js',
-    };
-
-    var packages = {
-        'app':                        { main: 'main.ts',  defaultExtension: 'ts' },
-        'rxjs':                       { defaultExtension: 'js' },
-        'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
-    };
-
-    var ngPackageNames = [
-        'common',
-        'compiler',
-        'core',
-        'http',
-        'platform-browser',
-        'platform-browser-dynamic',
-        'upgrade'
-    ];
-
-    ngPackageNames.forEach(function(pkgName) {
-        map['@angular/'+pkgName] = 'https://npmcdn.com/@angular/' + pkgName + ngVer;
-    });
-
-    ngPackageNames.forEach(function(pkgName) {
-        packages['@angular/'+pkgName] = { main: '/bundles/' + pkgName + '.umd.js', defaultExtension: 'js' };
-    });
-
-    packages['@angular/router'] = { main: 'index.js', defaultExtension: 'js' };
-    packages['@angular/forms'] = { main: 'index.js', defaultExtension: 'js' };
-    packages['@angular/router-deprecated'] = { main: '/bundles/router-deprecated' + '.umd.js', defaultExtension: 'js' };
-
-    var config = {
+(function (global) {
+    System.config({
         transpiler: 'ts',
         typescriptOptions: {
             tsconfig: true
@@ -56,10 +9,41 @@
                 "exports": "ts"
             }
         },
-        map: map,
-        packages: packages
-    };
+        paths: {
+            // paths serve as alias
+            'npm:': 'https://unpkg.com/'
+        },
+        map: {
+            app: 'app',
 
-    System.config(config);
+            '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
+            '@angular/common': 'npm:@angular/common/bundles/common.umd.js',
+            '@angular/compiler': 'npm:@angular/compiler/bundles/compiler.umd.js',
+            '@angular/platform-browser': 'npm:@angular/platform-browser/bundles/platform-browser.umd.js',
+            '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
+            '@angular/http': 'npm:@angular/http/bundles/http.umd.js',
+            '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
+            '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
+            '@angular/upgrade': 'npm:@angular/upgrade/bundles/upgrade.umd.js',
 
+            'rxjs':                       'npm:rxjs',
+            'angular2-in-memory-web-api': 'npm:angular2-in-memory-web-api',
+            'ts':                         'npm:plugin-typescript@4.0.10/lib/plugin.js',
+            'typescript':                 'npm:typescript@2.0.2/lib/typescript.js',
+
+        },
+        packages: {
+            app: {
+                main: './main.ts',
+                defaultExtension: 'ts'
+            },
+            rxjs: {
+                defaultExtension: 'js'
+            },
+            'angular2-in-memory-web-api': {
+                main: './index.js',
+                defaultExtension: 'js'
+            }
+        }
+    });
 })(this);
