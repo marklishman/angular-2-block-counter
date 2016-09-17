@@ -1,5 +1,6 @@
-import { bootstrap } from '@angular/platform-browser-dynamic';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import { BlockCounterComponent } from './block-counter.component';
+import { AppModule } from './app.module';
 
-bootstrap(BlockCounterComponent);
+const platform = platformBrowserDynamic();
+platform.bootstrapModule(AppModule);
