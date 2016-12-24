@@ -4,7 +4,6 @@
  */
 (function (global) {
     System.config({
-
         paths: {
             // paths serve as alias
             'npm:': 'https://unpkg.com/'
