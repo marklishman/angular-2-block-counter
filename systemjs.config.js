@@ -26,9 +26,8 @@
             // other libraries
             'rxjs':                      'npm:rxjs',
             'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
-
-            'ts':                        'npm:plugin-typescript/lib/plugin.js',
-            'typescript':                'npm:typescript/lib/typescript.js'
+            'typescript':                'npm:typescript/lib/typescript.js',
+            'ts':                        'npm:plugin-typescript/lib/plugin.js'
         },
 
         transpiler: 'ts',
